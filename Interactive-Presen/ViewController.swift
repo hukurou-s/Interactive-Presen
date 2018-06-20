@@ -15,10 +15,26 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        let imagePath = "001"
-        let image = NSImage(imageLiteralResourceName: imagePath)
-        CurrentSlide.image = image
+        var image = NSImage()
+
+        let openPanel: NSOpenPanel = NSOpenPanel()
+        openPanel.canChooseDirectories = false
+        openPanel.canChooseFiles = true
+        openPanel.allowsMultipleSelection = false
+        openPanel.message = "choose file"
+
+        openPanel.begin(completionHandler: { (result) -> Void in
+            if result == NSApplication.ModalResponse.OK {
+                image = NSImage(contentsOf: openPanel.url!)!
+                self.CurrentSlide.image = image
+            }
+        })
+
+        //let imagePath = "001"
+        //let image = NSImage(imageLiteralResourceName: imagePath)
+        //CurrentSlide.image = image
     }
+
 
 
     override var representedObject: Any? {
