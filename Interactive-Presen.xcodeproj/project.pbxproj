@@ -14,6 +14,7 @@
 		125F6C085953C083882BD22A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125F6B0C78E04642896879D9 /* ViewController.swift */; };
 		125F6DA19807293F8D1328A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 125F67DAF56902BE1CA5491F /* Assets.xcassets */; };
 		B335838F20D8C1BD00CC79E2 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B335838E20D8C1BD00CC79E2 /* images.xcassets */; };
+		B335839320D9277100CC79E2 /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335839220D9277100CC79E2 /* MyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		125F6F1756F627F5E5898A90 /* Interactive_Presen.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Interactive_Presen.entitlements; sourceTree = "<group>"; };
 		125F6FC431B7ED10BC09D688 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		B335838E20D8C1BD00CC79E2 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
+		B335839220D9277100CC79E2 /* MyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				125F6F1756F627F5E5898A90 /* Interactive_Presen.entitlements */,
 				125F621418661ECE225BA477 /* AppDelegate.swift */,
 				125F621DFB1CB7E5C2C10361 /* Main.storyboard */,
+				B335839220D9277100CC79E2 /* MyView.swift */,
 				125F6B0C78E04642896879D9 /* ViewController.swift */,
 			);
 			path = "Interactive-Presen";
@@ -242,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B335839320D9277100CC79E2 /* MyView.swift in Sources */,
 				125F6A47352E9EB3B82FFC00 /* AppDelegate.swift in Sources */,
 				125F6C085953C083882BD22A /* ViewController.swift in Sources */,
 			);

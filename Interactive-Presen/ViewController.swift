@@ -14,7 +14,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var CurrentSlide: NSImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-    // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view.
         let imagePath = "001"
         let image = NSImage(imageLiteralResourceName: imagePath)
         CurrentSlide.image = image
@@ -25,6 +25,12 @@ class ViewController: NSViewController {
     didSet {
     // Update the view, if already loaded.
     }
+    }
+
+
+    override func keyUp(with event: NSEvent)
+    {
+        print(event.keyCode)
     }
 
 
