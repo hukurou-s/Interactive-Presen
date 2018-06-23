@@ -12,10 +12,12 @@ import Foundation
 class ViewController: NSViewController {
 
     @IBOutlet weak var CurrentSlide: NSImageView!
+    var slideList :[NSImage] = []
+    var currentSlideNum : Int = 0
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        var image = NSImage()
 
         let openPanel: NSOpenPanel = NSOpenPanel()
         openPanel.canChooseDirectories = true
@@ -28,7 +30,12 @@ class ViewController: NSViewController {
                 //image = NSImage(contentsOf: openPanel.url!)!
                 //self.CurrentSlide.image = image
                 let fileList: [URL] = self.getFileList(directoryPath: openPanel.url!)
-                print(fileList)
+                let sortedList = fileList.sorted(by: { $0.path < $1.path })
+                for url in sortedList {
+                    self.slideList.append(NSImage(contentsOf: url)!)
+                }
+
+                self.CurrentSlide.image = self.slideList[self.currentSlideNum]
             }
         })
 
@@ -60,6 +67,13 @@ class ViewController: NSViewController {
     override func keyUp(with event: NSEvent)
     {
         print(event.keyCode)
+        if event.keyCode == 124 {
+            currentSlideNum += 1
+            CurrentSlide.image = slideList[currentSlideNum]
+        } else if event.keyCode == 123 {
+            currentSlideNum -= 1
+            CurrentSlide.image = slideList[currentSlideNum]
+        }
     }
 
 
