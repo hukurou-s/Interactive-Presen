@@ -18,15 +18,17 @@ class ViewController: NSViewController {
         var image = NSImage()
 
         let openPanel: NSOpenPanel = NSOpenPanel()
-        openPanel.canChooseDirectories = false
-        openPanel.canChooseFiles = true
+        openPanel.canChooseDirectories = true
+        openPanel.canChooseFiles = false
         openPanel.allowsMultipleSelection = false
         openPanel.message = "choose file"
 
         openPanel.begin(completionHandler: { (result) -> Void in
             if result == NSApplication.ModalResponse.OK {
-                image = NSImage(contentsOf: openPanel.url!)!
-                self.CurrentSlide.image = image
+                //image = NSImage(contentsOf: openPanel.url!)!
+                //self.CurrentSlide.image = image
+                let fileList: [URL] = self.getFileList(directoryPath: openPanel.url!)
+                print(fileList)
             }
         })
 
@@ -35,6 +37,17 @@ class ViewController: NSViewController {
         //CurrentSlide.image = image
     }
 
+    func getFileList(directoryPath: URL) -> [URL] {
+        do {
+            return try FileManager.default.contentsOfDirectory(
+                    at: directoryPath,
+                    includingPropertiesForKeys: nil,
+                    options: FileManager.DirectoryEnumerationOptions.skipsHiddenFiles)
+        } catch {
+            print("Failed to access the directory")
+            return []
+        }
+    }
 
 
     override var representedObject: Any? {
